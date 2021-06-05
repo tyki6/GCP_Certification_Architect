@@ -39,6 +39,9 @@ In Compute Engine > Storage > Images
 - Prefer using Custom Image to Startup script
 ### Use Custom Image for your vm
 When you create a vm or a template change boot disk and select custom image. 
+## VM Manager
+In Compute Engine > vm Manager
+You have OS patch management, it's for automate os patch management or os configuration for large vm fleets
 ## Internal Ip vs External Ip
 - Internal (Private) Ip addresses are internal to a corporate network
 - External (Public) Ip addresses are Internet addressable ( by defautl: ip is not constant, every stop ip will be change)
@@ -46,11 +49,47 @@ When you create a vm or a template change boot disk and select custom image.
 Basic vm: $27.91 monthly estimate
 That's about $0.038 hourly
 [Price](https://cloud.google.com/compute/all-pricing?_ga=2.184066726.-1209525355.1611325597)
-## Cli
+## CLI
 Create VM: `gcloud beta compute instances create my-instance  --image-family=rhel-8 --image-project=rhel-cloud  --zone=europe-west-b`
 SSH: `gcloud beta compute ssh --zone "europe-west1-b" "my-instance"  --tunnel-through-iap --project "my-project"`
 List VM: `gcloud compute instances list`
 List Custom Images: `gcloud compute images list`
 VM Templates: `gcloud compute instance-templates describe my-instance-template`
 Addresses: `gcloud compute addresses describe my-instance`
-[Documentation](https://cloud.google.com/sdk/gcloud/reference/beta/compute/instances)
+[Full Documentation](https://cloud.google.com/sdk/gcloud/reference/beta/compute/instances)
+# Instance Group
+Group of vm instances managed as a single entity.
+In Compute Engine > Instance Groups
+## Types
+### Managed
+Identical Vms created using template.Auto-scaling, auto healing (if health check failed recreate a new vm), managed releases without downtime(rolling update, test new version).
+#### Create MIG (Managed Instance Group)
+- Instance Template is mandatory
+- Choose multiple zones (Recommended)  
+- Configure Auto scaling to automatically adjust number of instance(min max instance, auto-scalling metrics like cpu utilisation etc...)
+- Configure auto healing to configure health check
+
+Difference between stateless and stateful is: stateful is for managing database.
+#### Rolling Update MIG
+In  Compute Engine > Instance Groups > your instance > Rolling Update
+- Specify new template
+- Set mode : ProActive(now) or Opporturistic ( when ig is resized)
+- Configure Max surge: how many instances are added at any point in time
+- Configure Max unavailable: how many instances can be offline during update
+#### Rolling Restart/Replace
+In  Compute Engine > Instance Groups > your instance > Rolling Restart/Replace
+- Specify replace vm or restart
+- Configure Max surge: how many instances are added at any point in time
+- Configure Max unavailable: how many instances can be offline during update
+### Unmanaged
+Different configuration for VM in same group.uto-scaling, auto healing aren't present.Not Recommended unless you need different kind of VMs.
+## Location
+Can be Zonal or Regional.Regional gives you higher availability( Recommended)
+## CLI 
+List Instance Group: `gcloud compute instance-groups list`
+Create Managed Instance Group: `gcloud compute instance-groups managed create my-managed-instance-group --zone=europe-west-b --template example-instance-template --size 1`
+Create Unmanaged Instance Group: `gcloud compute instance-groups managed create my-unmanaged-instance-group --zone=europe-west-b`
+Rolling Update: ` gcloud compute instance-groups managed rolling-action start-update my-instance-groups`
+Rolling Restart: ` gcloud compute instance-groups managed rolling-action restart my-instance-groups`
+Rolling Replace: ` gcloud compute instance-groups managed rolling-action replace my-instance-groups`
+[Full Documentation](https://cloud.google.com/sdk/gcloud/reference/compute/instance-groups)
