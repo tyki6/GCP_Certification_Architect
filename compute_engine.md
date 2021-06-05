@@ -46,6 +46,7 @@ You have OS patch management, it's for automate os patch management or os config
 - Internal (Private) Ip addresses are internal to a corporate network
 - External (Public) Ip addresses are Internet addressable ( by defautl: ip is not constant, every stop ip will be change)
 ## Price
+billed by the second, not billed when vm is stopped
 Basic vm: $27.91 monthly estimate
 That's about $0.038 hourly
 [Price](https://cloud.google.com/compute/all-pricing?_ga=2.184066726.-1209525355.1611325597)
@@ -93,3 +94,13 @@ Rolling Update: ` gcloud compute instance-groups managed rolling-action start-up
 Rolling Restart: ` gcloud compute instance-groups managed rolling-action restart my-instance-groups`
 Rolling Replace: ` gcloud compute instance-groups managed rolling-action replace my-instance-groups`
 [Full Documentation](https://cloud.google.com/sdk/gcloud/reference/compute/instance-groups)
+# Preemptible VM
+Short-lived cheaper
+In Compute Engine > Create a vm Instance > Availability policy > Preemptibility
+## Condition
+- Your applications are fault tolerant
+- You are very cost sensitive 
+- Your workload is NOT immediate
+## Restriction
+- Not always available
+- No SLA and Cannot be migrated to regular VM
