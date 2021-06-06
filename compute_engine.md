@@ -1,5 +1,5 @@
 # Compute Engine(GCE): Provision & Manage Virtual Machines
-
+Type: IAAS
 ## Objects
 - Compute Engine
 - Persistent Disk
