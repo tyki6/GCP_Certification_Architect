@@ -1,36 +1,37 @@
 # Google Kubernetes Engine (GKE)
+[On Your console > Kubernetes Engine](https://console.cloud.google.com/kubernetes/list)
 Managed Kubernetes service, auto-repair, auto-upgrade, provides pod and cluster autoscaling, enable cloud logging and monitorring
 Uses container optimized os
 ## Type of cluster
-- Zone cluster: Single zone master and node running in the same zone
-- Regional cluster: Replicas of the control plane runs in multiple zones of a given region.Nodes also run in same zones where control plane runs
-- Private cluster: VPC-native cluster.Nodes only have internal ip
-- Alpha cluster: Cluster with alpha api & early features.
+- **Zone cluster**: Single zone master and node running in the same zone
+- **Regional cluster**: Replicas of the control plane runs in multiple zones of a given region.Nodes also run in same zones where control plane runs
+- **Private cluster**: VPC-native cluster.Nodes only have internal ip
+- **Alpha cluster**: Cluster with alpha api & early features.
 ## Create a GKE
-In Google Kubernetes Engine > create cluster
+[On Your console > Kubernetes Engine > Create Cluster > Standard](https://console.cloud.google.com/kubernetes/list)
 - Specify a name
+- Node Pool (numbers of vm): (Optional)  
 - Click on create
 ## Details of your cluster
-In Google Kubernetes Engine > Clusters
-- select your cluster 
-- Details is for global information like master nodes, number of worker nodes, os, regions etc...
-- Nodes is for Nodes and node pools(template for groups of nodes created like [MIG](compute_engine.md#instance-group))
-- Storage is for which disk is attached to cluster
-- Logs is for all cluster logs
+On Your console > Kubernetes Engine > Click on your Cluster
+- **Details** is for global information like master nodes, number of worker nodes, os, regions etc...
+- **Nodes** are for Nodes and node pools(template for groups of nodes created like [MIG](compute_engine.md#instance-group))
+- **Storage** is for which disk is attached to cluster
+- **Logs** is for all cluster logs
 ## Create Kubernetes object
 Use kubectl commands.
 ## Workloads
-In Google Kubernetes Engine > Workloads
-ref: deployments, daemonset, statefulset in kubernetes
-If you select one workload you can have all information about this object like kubectl describe XXXX XXXXX or Events
+On Your console > Kubernetes Engine > Click on your Cluster > Workloads
+Kubernetes References: [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+If you select **one workload** you can have **all information** about this object like kubectl describe XXXX XXXXX or Events
 ## Service & Ingress
-In Google Kubernetes Engine > Service & Ingress
-ref: Services and Ingress in kubernetes
-Services are all service in kubernetes, managed network endpoint that can be used for discovery and load balancing
-Ingress are all ingress in kubernetes, managed network endpoint in internet: collections of rules for routing external HTTP(S) traffic to Services
+On Your console > Kubernetes Engine > Click on your Cluster > Service & Ingress
+Kubernetes References: [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) in kubernetes
+Services are all service in kubernetes, managed network endpoint that can be used for discovery and load balancing.
+Ingress are all ingress in kubernetes, managed network endpoint in internet: collections of rules for routing external HTTP(S) traffic to Services.
 ## Applications
-In Google Kubernetes Engine > Applications
-Deploy a kubernetes applications  like gitlab, datadog etc.....
+On Your console > Kubernetes Engine > Click on your Cluster > Applications
+Deploy a kubernetes applications  like Gitlab, Datadog etc.....(All Application available are present in marketplace)
 ## Configuration
 In Google Kubernetes Engine > Configuration
 ref: Secrets and ConfigMaps in kubernetes

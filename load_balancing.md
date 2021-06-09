@@ -17,6 +17,6 @@ In Network service > Load Balancer
 - Backend Configuration: Group of endpoints that receive traffic from gcp Load Balancer(your vm for example.) 
 - Specify Host and path rules like which path redirect to which backend etc...
 - Specify Front configuration (port, protocol, ssl  etc...)
-Creation take a time around 10 minutes. Don't worry
+**Creation take a time around 10 minutes. Don't worry**
 
 
