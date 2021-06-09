@@ -18,6 +18,7 @@ Container to production in seconds. Type: CAAS,Serveless
 - Permissions: 
 ## Price
 Pricing factors  are Cpu, Memory & Requests and Networking
+[Full Documentation](https://cloud.google.com/run/pricing)
 ## CLI
 Deploy a container: `gcloud run deploy my-service --image my-image-url`
 List All services: `gcloud run services list`
