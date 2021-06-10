@@ -14,7 +14,7 @@ Container to production in seconds. Type: CAAS,Serveless
 - Logs: all logs concerning your container
 - Triggers: ingress & authentication configuration
 - Details: get region, url, last revision deployed
-- Yaml: yaml configuration like kubernetes(edition is enable)
+- Yaml: yaml configuration like kubernetes(_edition is enable_)
 - Permissions: 
 ## Price
 Pricing factors  are Cpu, Memory & Requests and Networking

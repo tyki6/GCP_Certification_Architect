@@ -66,6 +66,25 @@ Addresses: `gcloud compute addresses describe my-instance`
 # Storage
 [On Your console > Compute Engine > Storage](https://console.cloud.google.com/compute/images)
 Manage Os Image, Persistent Disk.
+## Persistent Disk
+[On Your console > Compute Engine > Storage > Disks](https://console.cloud.google.com/compute/disks)
+Network Block Storage
+### Disk Type
+- Standard: Hard Disk referred to pd-standard, performance: good, cost: cheapest
+- Balanced: Solid State Drive referred to pd-balanced, performance: good, cost: in between
+- SSD: Solid State Drive referred to pd-ssd, performance: very good, cost Expensive
+### Create A Persistent Disk
+[On Your console > Compute Engine > Storage > Disks > Create a Disk](https://console.cloud.google.com/compute/disksAdd)
+- specify name
+- Enable regional disk replication if you work on a regional disk  
+- Source: Blank Disk or Image or Snapshot
+- Disk type: Standard, Balanced persistent disk or SSD
+- Size
+### CLI
+Create Disks: `gcloud compute disks create my-disk`
+List Disks: `gcloud compute disks list`
+Details of your Disks: `gcloud compute disks describe my-disk`
+[Full Documentation](https://cloud.google.com/sdk/gcloud/reference/compute/images)
 ## Images
 [On Your console > Compute Engine > Storage > Images](https://console.cloud.google.com/compute/images)
 List of Os images
@@ -78,7 +97,7 @@ List of Os images
 - Reduce Launch Time
 - Create a vm with os patches and software pre-installed
 - Prefer using Custom Image to Startup script
-## CLI
+### CLI
 Create Image: `gcloud compute images create my-image --source-disk=my-disk  --source-disk-zone=europe-west-b`
 List Images: `gcloud compute images list`
 Details of your image: `gcloud compute images describe my-images`

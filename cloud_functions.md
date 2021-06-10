@@ -27,10 +27,10 @@ With Cloud Functions **you write simple, single-purpose functions** that are att
 - Details: general information
 - Source: source code
 - Variable: environment variable
-- trigger:  Trigger type, Trigger information
-- permissions: allow members to call your function
-- logs: all logs concerning your functions
-- testing: you can trigger your function for testing your work.
+- Trigger:  Trigger type, Trigger information
+- Permissions: allow members to call your function
+- Logs: all logs concerning your functions
+- Testing: you can trigger your function for testing your work.
 ## Price
 Pay only for what you use:
 - **Number** of _invocations_
