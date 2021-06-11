@@ -27,6 +27,10 @@ Prevents accidental deletion & provides history
 ## Bucket Lock
 [On Your console > Cloud Storage > Your Bucket > Retention > Set Retention](https://console.cloud.google.com/storage/browser)
 - Specify time
+## ACL (Access Control List)
+[On Your console > Cloud Storage > Your Bucket > Permissions](https://console.cloud.google.com/storage/browser)
+- Uniform (Recommended): Uniform Bucket level access using iam
+- Fine-grained: Use IAM and ACL to control Access
 ## Create Bucket
 [On Your console > Cloud Storage > Create Bucket](https://console.cloud.google.com/storage/create-bucket)
 - Specify name
@@ -45,4 +49,5 @@ List version: `gsutil ls -a gs://my_bucket`
 Copy objects: `gsutil cp gs://my_bucket gs://my_bucket_2`,
 Upload Object: `gsutil cp local/my_local_file gs://my_bucket_2`
 Download Object: `gsutil cp gs://my_bucket local/my_local_file`
+Create signed URL: `gsutil signurl -d 10m YOUR_KEY gs://my_bucket `
 [Full Documentation](https://cloud.google.com/storage/docs/gsutil)
