@@ -4,7 +4,7 @@
 - [Cloud SQL](cloud_sql.md): Managed MySQK, PostgreSQL, MS SQL
 - [Cloud Spanner](cloud_spanner.md): Horizontally scalable relational database
 - [Cloud Firestore](firestore.md): Flexible, scalable, transactional NoSQL database
-- [Cloud BigTable](big_table.md): Managed wide-column NoSQL
+- [Cloud BigTable](cloud_big_table.md): Managed wide-column NoSQL
 - [BigQuery](big_query.md): Managed data warehouse
 - Custom Database: Use MarketPlace
 # Process and Analyze

@@ -1,5 +1,4 @@
 # Database in gcp
-
 ## Database Category
 ### Relational Database - OLTP (Online Transaction Processing)
 Applications where large number of users make large number of small transactions.(equivalent: MySQL, Oracle, Sql Server)
@@ -13,8 +12,8 @@ GCP Services:
 ### NoSQL Database
 New approch to building your db 
 GCP Services:
-- [DataStore](datastore.md): Managed Serverless NoSQL document database(Recommended for small or medium database)
-- [BigTable](big_table.md): Managed, Scalable NoSQL wide column database(Recommended for big database)
+- [DataStore](cloud_datastore.md): Managed Serverless NoSQL document database(**Recommended** for small or medium database)
+- [BigTable](cloud_big_table.md): Managed, Scalable NoSQL wide column database(**Recommended** for big database)
 ### In Memory Databases
 Retrieving data from memory is much faster than retrieving data from disk
 GCP Services:

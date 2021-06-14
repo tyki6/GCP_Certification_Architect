@@ -1,4 +1,5 @@
 # Load Balancing
+[On Your console > Network services](https://console.cloud.google.com/net-services/loadbalancing/loadBalancers/list)  
 Distributes user traffic across instances of an application.
 ## Features
 - Health check

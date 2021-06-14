@@ -1,15 +1,15 @@
 # Compute Engine(GCE)
-[On Your console > Compute Engine](https://console.cloud.google.com/compute/instances)
+[On Your console > Compute Engine](https://console.cloud.google.com/compute/instances)  
 Run Large-Scale Workloads On VMs Using Google's Infrastructure.**Type: IAAS**
 ## Objects
 - Compute Engine( Virtual Machine)
-- Storage (Persistent Disk)
-- Instance groups (Groups of vms)  
-- VM Manager (OS configuration)
+- [Storage](#storage) (Persistent Disk)
+- [Instance groups](#instance-group) (Groups of vms)  
+- [VM Manager](#vm-manager) (OS configuration)
 ## Features
-- create and Manage Lifecycle of vm instances (start - Stop)
+- Create and Manage Lifecycle of vm instances (start - Stop)
 - Load Balancing and auto scaling for multiple vm
-- attach storage to your vm
+- Attach storage to your vm
 - Manage network connectivity and configuration for your vm
 # Virtual Machine
 [On Your console > Compute Engine > Virtual Machines](https://console.cloud.google.com/compute/instances)
@@ -37,7 +37,7 @@ Define machine type, image, labels, startup script and other properties you want
 ### Use Custom Image for your vm
 When you create a vm or a template change boot disk and select custom image.
 ## Preemptible VM
-[On Your console > Compute Engine > Virtual Machines > Create Instance > Management > Availability policy > Preemptibility](https://console.cloud.google.com/compute/instancesAdd)
+[On Your console > Compute Engine > Virtual Machines > Create Instance > Management > Availability policy > Preemptibility](https://console.cloud.google.com/compute/instancesAdd)  
 Short-lived cheaper
 ### Condition
 - Your applications are **fault tolerant**
@@ -50,46 +50,47 @@ Short-lived cheaper
 - Internal (Private) Ip addresses are internal to a corporate network
 - External (Public) Ip addresses are Internet addressable ( by defautl: ip is not constant, every stop ip will be change)
 ## Price
-billed by the second, not billed when vm is stopped
-Basic vm: $27.91 monthly estimate
-That's about $0.038 hourly
-[Price](https://cloud.google.com/compute/all-pricing?_ga=2.184066726.-1209525355.1611325597)
+**Virtual Machine** pricing is based on the following components:
+- Machine Type
+- Uptime
+- Preemptible VM or Not  
+[Full Documentation](https://cloud.google.com/compute/vm-instance-pricing)
 ## CLI
-Create VM: `gcloud beta compute instances create my-instance  --image-family=rhel-8 --image-project=rhel-cloud  --zone=europe-west-b`
-SSH: `gcloud beta compute ssh --zone "europe-west1-b" "my-instance"  --tunnel-through-iap --project "my-project"`
-List VM: `gcloud compute instances list`
-List Custom Images: `gcloud compute images list`
-VM Templates: `gcloud compute instance-templates describe my-instance-template`
-Addresses: `gcloud compute addresses describe my-instance`
+Create VM: `gcloud beta compute instances create my-instance  --image-family=rhel-8 --image-project=rhel-cloud  --zone=europe-west-b`  
+SSH: `gcloud beta compute ssh --zone "europe-west1-b" "my-instance"  --tunnel-through-iap --project "my-project"`  
+List VM: `gcloud compute instances list`  
+List Custom Images: `gcloud compute images list`  
+VM Templates: `gcloud compute instance-templates describe my-instance-template`  
+Addresses: `gcloud compute addresses describe my-instance`  
 [Full Documentation](https://cloud.google.com/sdk/gcloud/reference/beta/compute/instances)
 
 # Storage
-[On Your console > Compute Engine > Storage](https://console.cloud.google.com/compute/images)
+[On Your console > Compute Engine > Storage](https://console.cloud.google.com/compute/images)  
 Manage Os Image, Persistent Disk.
 ## Persistent Disk
-[On Your console > Compute Engine > Storage > Disks](https://console.cloud.google.com/compute/disks)
+[On Your console > Compute Engine > Storage > Disks](https://console.cloud.google.com/compute/disks)  
 Network Block Storage
 ### Disk Type
-- Standard: Hard Disk referred to pd-standard, performance: good, cost: cheapest
-- Balanced: Solid State Drive referred to pd-balanced, performance: good, cost: in between
-- SSD: Solid State Drive referred to pd-ssd, performance: very good, cost Expensive
+- **Standard**: Hard Disk referred to pd-standard, performance: good, cost: cheapest
+- **Balanced**: Solid State Drive referred to pd-balanced, performance: good, cost: in between
+- **SSD**: Solid State Drive referred to pd-ssd, performance: very good, cost Expensive
 ### Create A Persistent Disk
-[On Your console > Compute Engine > Storage > Disks > Create a Disk](https://console.cloud.google.com/compute/disksAdd)
-- specify name
+[On Your console > Compute Engine > Storage > Disks > Create a Disk](https://console.cloud.google.com/compute/disksAdd):
+- Specify name
 - Enable regional disk replication if you work on a regional disk  
 - Source: Blank Disk or Image or Snapshot
 - Disk type: Standard, Balanced persistent disk or SSD
 - Size
 ### CLI
-Create Disks: `gcloud compute disks create my-disk`
-List Disks: `gcloud compute disks list`
-Details of your Disks: `gcloud compute disks describe my-disk`
+Create Disks: `gcloud compute disks create my-disk`  
+List Disks: `gcloud compute disks list`  
+Details of your Disks: `gcloud compute disks describe my-disk`  
 [Full Documentation](https://cloud.google.com/sdk/gcloud/reference/compute/images)
 ## Images
-[On Your console > Compute Engine > Storage > Images](https://console.cloud.google.com/compute/images)
+[On Your console > Compute Engine > Storage > Images](https://console.cloud.google.com/compute/images)  
 List of Os images
 ### Create Image
-[On Your console > Compute Engine > Storage > Images > Create Image](https://console.cloud.google.com/compute/imagesAdd)
+[On Your console > Compute Engine > Storage > Images > Create Image](https://console.cloud.google.com/compute/imagesAdd)  
 - Specify name
 - Specify source: create image from Disk gcloud storage etc...
 - Specify Source disk: compute engine disk that contains image
@@ -97,13 +98,18 @@ List of Os images
 - Reduce Launch Time
 - Create a vm with os patches and software pre-installed
 - Prefer using Custom Image to Startup script
+## Price
+**Storage** pricing is based on the following components:
+- Storage
+- Uptime  
+[Full Documentation](https://cloud.google.com/compute/all-pricing#disk)
 ### CLI
-Create Image: `gcloud compute images create my-image --source-disk=my-disk  --source-disk-zone=europe-west-b`
-List Images: `gcloud compute images list`
-Details of your image: `gcloud compute images describe my-images`
+Create Image: `gcloud compute images create my-image --source-disk=my-disk  --source-disk-zone=europe-west-b`  
+List Images: `gcloud compute images list`  
+Details of your image: `gcloud compute images describe my-images`  
 [Full Documentation](https://cloud.google.com/sdk/gcloud/reference/compute/images)
 # Instance Group
-[On Your console > Compute Engine > Instance groups](https://console.cloud.google.com/compute/instanceGroups/list)
+[On Your console > Compute Engine > Instance groups](https://console.cloud.google.com/compute/instanceGroups/list)  
 Group of vm instances managed as a single entity.
 ## Types
 ### Managed
@@ -118,15 +124,15 @@ Identical Vms created using template.**Auto-scaling, auto healing** (if health c
 
 Difference between _stateless_ and _stateful_ is: **stateful** is for **managing database**.
 #### Rolling Update MIG
-On Your console > Compute Engine > Instance groups > Your IG > Rolling Update.
-A rolling update is a gradual update of the instances in the instance group to the target configuration of templates.
+[On Your console > Compute Engine > Instance groups > Your IG > Rolling Update](https://console.cloud.google.com/compute/instanceGroups/list)   
+A rolling update is a gradual update of the instances in the instance group to the target configuration of templates:
 - Specify new template
 - Set mode : ProActive(`now`) or Opporturistic ( _when ig is resized_)
 - Configure **Max surge**: how many instances are added at any point in time
 - Configure **Max unavailable**: how many instances can be offline during update
 #### Rolling Restart/Replace
-On Your console > Compute Engine > Instance groups > Your IG > Rolling Restart/Replace.
-Gradual restart or replace of all instances in the group.
+[On Your console > Compute Engine > Instance groups > Your IG > Restart/Replace](https://console.cloud.google.com/compute/instanceGroups/list)   
+Gradual restart or replace of all instances in the group:
 - Specify replace vm or restart
 - Configure **Max surge**: how many instances are added at any point in time
 - Configure **Max unavailable**: how many instances can be offline during update
@@ -135,13 +141,13 @@ Different configuration for VM in same group.**Auto-scaling, auto healing aren't
 ## Location
 Can be Zonal or Regional.Regional gives you higher availability(**Recommended**)
 ## CLI 
-List Instance Group: `gcloud compute instance-groups list`
-Create Managed Instance Group: `gcloud compute instance-groups managed create my-managed-instance-group --zone=europe-west-b --template example-instance-template --size 1`
-Create Unmanaged Instance Group: `gcloud compute instance-groups managed create my-unmanaged-instance-group --zone=europe-west-b`
-Rolling Update: ` gcloud compute instance-groups managed rolling-action start-update my-instance-groups`
-Rolling Restart: ` gcloud compute instance-groups managed rolling-action restart my-instance-groups`
-Rolling Replace: ` gcloud compute instance-groups managed rolling-action replace my-instance-groups`
+List Instance Group: `gcloud compute instance-groups list`  
+Create Managed Instance Group: `gcloud compute instance-groups managed create my-managed-instance-group --zone=europe-west-b --template example-instance-template --size 1`  
+Create Unmanaged Instance Group: `gcloud compute instance-groups managed create my-unmanaged-instance-group --zone=europe-west-b`  
+Rolling Update: ` gcloud compute instance-groups managed rolling-action start-update my-instance-groups`  
+Rolling Restart: ` gcloud compute instance-groups managed rolling-action restart my-instance-groups`  
+Rolling Replace: ` gcloud compute instance-groups managed rolling-action replace my-instance-groups`  
 [Full Documentation](https://cloud.google.com/sdk/gcloud/reference/compute/instance-groups)
 # VM Manager
-[On Your console > Compute Engine > VM Manager](https://console.cloud.google.com/compute/patch/dashboard)
+[On Your console > Compute Engine > VM Manager](https://console.cloud.google.com/compute/patch/dashboard)  
 You have OS patch management, it's for automate os patch management or os configuration for large vm fleets
