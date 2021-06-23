@@ -9,6 +9,7 @@ Exabyte scale modern **Datawarehousing solution** from GCP. **Type: SASS**
 **BigQuery** pricing has two main components:
 - Storage
 - **Cost** to process _Queries_  
+- BigQuery is charged at a Per Second Interval
 [Full Documentation](https://cloud.google.com/bigquery/pricing)
 ## CLI
 [Full Documentation](https://cloud.google.com/bigquery/docs/bq-command-line-tool)

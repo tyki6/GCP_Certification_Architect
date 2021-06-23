@@ -1,6 +1,10 @@
 # Cloud Storage or Object Storage (GCS)
 [On Your console > Cloud Storage](https://console.cloud.google.com/storage/browser)  
 Most popular, very flexible & inexpensive **Storage Service**. **Type: SAAS**
+## Features
+- Unlimited Object
+- maximum size of Object: 5TB
+- frequency updating objects: 1 seconds
 ## Class of Storage
 - **Standard**: Best for short-term storage and frequently accessed data
 - **Nearline**: Best for backups and data encrypted less than one a month

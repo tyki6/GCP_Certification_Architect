@@ -4,7 +4,7 @@ Fully Managed Relational DataBase service.**Type: SAAS**(**Recommended** for mig
 ## Features
 - Automatic encryption
 - High Availability
-- Read Replicas
+- Synchronous Read Replicas
 - Automatics storage increase
 - Backups (automated or on-demand)
 ## Supports

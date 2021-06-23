@@ -5,6 +5,8 @@ Petabyte scale, wide column **NoSQL DB**(HBase API compatible), **Recommended** 
 - handle millions of read/write TPS at very low latency
 - single row transactions
 - Not serverless: you need to create a server instance
+- Time-Series Data
+- Clusters Location: Zones, Cluster instaces must be in unique zones
 ## Create Instance
 [On your Console > BigTable > Create Instance](https://console.cloud.google.com/bigtable/create-instance)  
 - Specify name
